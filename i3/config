@@ -45,16 +45,20 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # Autostart
-exec polybar
+exec /home/creepy0964/launch_polybar.sh
 exec setxkbmap -layout us,ru
 exec setxkbmap -option 'grp:alt_shift_toggle'
-exec feh --bg-scale ~/Загрузки/chill.png
+exec feh --bg-scale ~/Pictures/wallpaper3.png
 exec picom
+exec xrandr --output HDMI-0 --auto --left-of DVI-D-0
 
 # Window layout
 gaps inner 10
 gaps outer 4
 for_window [class="^.*"] border pixel 0
+
+bindsym Print exec spectacle
+bindsym $mod+d exec rofi -show run
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -63,7 +67,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
