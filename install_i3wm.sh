@@ -1,10 +1,14 @@
 #!/bin/bash
 clear
 
-workdir = "~/creepy0964-dotfiles"
-i3 = "~/.config/i3"
-polybar = "~/.config/polybar"
-picom = "~/.config/picom"
+workdir="$HOME/creepy0964-dotfiles"
+i3="$XDG_CONFIG_HOME/.config/i3"
+polybar="$XDG_CONFIG_HOME/.config/polybar"
+picom="$XDG_CONFIG_HOME/.config/picom"
+
+i3_conf="/config"
+polybar_conf="/config.ini"
+picom_conf="/picom.conf"
 
 if [ "$EUID" -eq 0 ]; then
     echo -e 'Do NOT execute this script as sudo/root.'
@@ -17,9 +21,9 @@ sudo pacman -Sy i3-wm i3lock rofi git polybar picom feh alacritty --needed --noc
 
 while pgrep -x pacman > /dev/null; do sleep 1; done
 
-if [ -d ~/creepy0964-dotfiles ]; then
+if [ -d $workdir ]; then
     echo -e '\nDirectory exists. Removing...'
-    rm -rf ~/creepy0964-dotfiles
+    rm -rf $workdir
 fi
 
 while pgrep -x rm > /dev/null; do sleep 1; done
@@ -28,26 +32,31 @@ git clone https://github.com/creepy0964/dotfiles $workdir
 
 while pgrep -x git > /dev/null; do sleep 1; done
 
-if ! [ -d ~/.config/i3 ]; then
+if ! [ -d $i3 ]; then
     echo -e '\nNo i3 directory. Creating...'
-    mkdir -p ~/.config/i3
+    mkdir -p $i3
 fi
 
-if ! [ -d ~/.config/polybar ]; then
+if ! [ -d $polybar ]; then
     echo -e '\nNo polybar directory. Creating...'
-    mkdir -p ~/.config/polybar
+    mkdir -p $polybar
 fi
 
-if ! [ -d ~/.config/picom ]; then
+if ! [ -d $picom ]; then
     echo -e '\nNo picom directory. Creating...'
-    mkdir -p ~/.config/picom
+    mkdir -p $picom
 fi
 
-cp $workdir/config/i3/config $i3/config
-cp $workdir/config/polybar/config.ini $polybar/config.ini
-cp $workdir/config/picom/picom.conf $picom/picom.conf
-cp $workdir/images/wallpaper3.png ~/Pictures/wallpaper3.png
-cp $workdir/launch_polybar.sh $polybar/launch_polybar.sh
-chmod +x $polybar/launch_polybar.sh
+if ! [ -d $HOME/Pictures ]; then
+    echo -e '\nNo Pictures directory. Creating...'
+    mkdir -p $HOME/Pictures
+fi
+
+cp $workdir/config/i3/config "$i3$i3_conf"
+cp $workdir/config/polybar/config.ini "$polybar$polybar_conf"
+cp $workdir/config/picom/picom.conf "$picom$picom_conf"
+cp $workdir/images/wallpaper3.png $HOME/Pictures/wallpaper3.png
+cp $workdir/launch_polybar.sh "$polybar/launch_polybar.sh"
+chmod +x "$polybar/launch_polybar.sh"
 
 echo -e '\n\n\nDone. Now you can log out from your current DE/WM and log in into i3-wm.\n'
