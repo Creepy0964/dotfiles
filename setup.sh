@@ -29,14 +29,14 @@ copyFiles() {
             cp ./pc/polybar/* /home/$USER/.config/polybar/
             cp ./pc/picom/* /home/$USER/.config/picom/
             cp ./wallpaper3.png /home/$USER/Pictures/
-            sudo cp ./UniNeueRegular.ttf /usr/local/share/fonts
+            sudo cp ./UniNeueRegular.ttf /usr/local/share/fonts/
             ;;
         'N' | 'n')
             cp ./notebook/i3/* /home/$USER/.config/i3/
             cp ./notebook/polybar/* /home/$USER/.config/polybar/
             cp ./notebook/picom/* /home/$USER/.config/picom/
             cp ./wallpaper3.png /home/$USER/Pictures/
-            sudo cp ./UniNeueRegular.ttf /usr/local/share/fonts
+            sudo cp ./UniNeueRegular.ttf /usr/local/share/fonts/
             ;;
         *)
             echo 'Unknown input. Exiting...'
