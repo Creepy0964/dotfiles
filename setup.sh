@@ -18,7 +18,7 @@ copyFiles() {
         mkdir /home/$USER/Pictures
     fi
     if [ ! -d /usr/local/share/fonts ]; then
-        echo -e "No Pictures directory. Creating..."
+        echo -e "No fonts directory. Creating..."
         sudo mkdir /usr/local/share/fonts
     fi
     read -p "PC or notebook? [p/n]: " device
