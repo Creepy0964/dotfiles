@@ -3,39 +3,39 @@ clear
 copyFiles() {
     if [ ! -d /home/$USER/.config/i3/ ]; then
         echo -e "No i3 directory. Creating..."
-        mkdir /home/$USER/.config/i3
+        sudo mkdir -p /home/$USER/.config/i3
     fi
     if [ ! -d /home/$USER/.config/polybar/ ]; then
         echo -e "No polybar directory. Creating..."
-        mkdir /home/$USER/.config/i3
+        sudo mkdir -p /home/$USER/.config/polybar
     fi
     if [ ! -d /home/$USER/.config/picom/ ]; then
         echo -e "No picom directory. Creating..."
-        mkdir /home/$USER/.config/i3
+        sudo mkdir -p /home/$USER/.config/picom
     fi
     if [ ! -d /home/$USER/Pictures ]; then
         echo -e "No Pictures directory. Creating..."
-        mkdir /home/$USER/Pictures
+        sudo mkdir -p /home/$USER/Pictures
     fi
     if [ ! -d /usr/local/share/fonts ]; then
         echo -e "No fonts directory. Creating..."
-        sudo mkdir /usr/local/share/fonts
+        sudo mkdir -p /usr/local/share/fonts
     fi
     read -p "PC or notebook? [p/n]: " device
     case $device in
 
         'P' | 'p')
-            cp ./pc/i3/* /home/$USER/.config/i3/
-            cp ./pc/polybar/* /home/$USER/.config/polybar/
-            cp ./pc/picom/* /home/$USER/.config/picom/
-            cp ./wallpaper3.png /home/$USER/Pictures/
+            sudo cp ./pc/i3/* /home/$USER/.config/i3/
+            sudo cp ./pc/polybar/* /home/$USER/.config/polybar/
+            sudo cp ./pc/picom/* /home/$USER/.config/picom/
+            sudo cp ./wallpaper3.png /home/$USER/Pictures/
             sudo cp ./UniNeueRegular.ttf /usr/local/share/fonts/
             ;;
         'N' | 'n')
-            cp ./notebook/i3/* /home/$USER/.config/i3/
-            cp ./notebook/polybar/* /home/$USER/.config/polybar/
-            cp ./notebook/picom/* /home/$USER/.config/picom/
-            cp ./wallpaper3.png /home/$USER/Pictures/
+            sudo cp ./notebook/i3/* /home/$USER/.config/i3/
+            sudo cp ./notebook/polybar/* /home/$USER/.config/polybar/
+            sudo cp ./notebook/picom/* /home/$USER/.config/picom/
+            sudo cp ./wallpaper3.png /home/$USER/Pictures/
             sudo cp ./UniNeueRegular.ttf /usr/local/share/fonts/
             ;;
         *)
@@ -43,7 +43,8 @@ copyFiles() {
             exit 1
             ;; 
     esac
-    chmod +x /home/$USER/.config/i3/*
+    sudo chown $USER /home/$USER/*
+    sudo chmod +x /home/$USER/.config/i3/*
     echo -p "All done! Now you can login into i3wm."
 }
 
