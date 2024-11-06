@@ -1,0 +1,37 @@
+* {
+    background-color: transparent;
+}
+
+window {
+    background-color: #120d12;
+    border-color: #c5bad5;
+}
+
+prompt, entry, textbox-prompt-colon {
+    text-color: #c5bad5;
+}
+
+listview {
+    border-color: #c5bad5;
+    border: 0px 0px;
+}
+
+scrollbar {
+    border: 0;
+    handle-color: #c5bad5;
+}
+
+element normal normal {
+    text-color: #c5bad5;
+    background-color: #120d12;
+}
+
+element selected normal {
+    text-color: #120d12;
+    background-color: #c5bad5;
+}
+
+element alternate normal {
+    text-color: #c5bad5;
+    background-color: #120d12;
+}
