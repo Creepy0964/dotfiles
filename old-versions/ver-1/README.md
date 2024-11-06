@@ -1,5 +1,3 @@
-# NOTE: this version of dotfiles is OUTDATED and will be removed in the foreseeable future. Please use the `master` branch.
-
 # Creepy0964's dotfiles
 All my i3wm config files.
 
