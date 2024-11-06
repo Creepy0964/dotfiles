@@ -34,8 +34,8 @@ after that, log out and log in or start sddm
 after that, log out and log in or enable/start your display manager
 
 # example
-![alacritty](alacritty.jpg)
-![desktop](desktop.jpg)
+![alacritty](alacritty.png)
+![desktop](desktop.png)
 
 # plugins
 ```bash
